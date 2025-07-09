@@ -165,7 +165,10 @@ class LoginView(tk.Tk):
             self._show_message("Erro interno. Tente novamente.", is_error=True)
 
     def _on_login_success(self, user):
-        print(f"Usuário logado: {user.email if user else 'N/A'}")
+            self.destroy()
+            from Views.MainView import MainView
+            main_view = MainView(user)
+            main_view.mainloop()
 
 if __name__ == "__main__":
     app = LoginView()
